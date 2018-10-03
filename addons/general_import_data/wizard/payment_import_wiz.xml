@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="upload_payment_data" model="ir.ui.view">
+        <field name="name">Upload Payment</field>
+        <field name="model">payment.data.import</field>
+        <field name="arch" type="xml">
+            <form string="Export Data">
+                <group colspan="2">
+                    <field name="xls_file" string="Select File"/>
+                </group>
+                <footer>
+                    <button name="import_data_payment" string="Upload Payment" type="object" default_focus="1" class="oe_highlight"/>
+                    or 
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+	<record id="action_import_payment_data" model="ir.actions.act_window">
+        <field name="name">Upload Payment</field>
+        <field name="res_model">payment.data.import</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="upload_payment_data"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="import_partner_data_id_c_payment" name="Import Payment" parent="menu_finance_receivables_import_data"
+        action="action_import_payment_data" sequence="4"/>
+
+    <menuitem id="import_partner_data_id_v_payment" name="Import Payment" parent="menu_finance_payables_import_data"
+        action="action_import_payment_data" sequence="4"/>
+
+</odoo>

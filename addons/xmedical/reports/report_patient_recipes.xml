@@ -1,0 +1,81 @@
+<odoo>
+<data>
+  <report
+    id="sb_medical_clinic_patient_recipes_print_data"
+    model="sb.patient_recipes"
+    string="Patient Recipes"
+    report_type="qweb-pdf"
+    name="sb_medical_clinic.report_patient_recipes"
+    file="sb_medical_clinic.report_patient_recipes"
+    attachment_use="True"
+  />
+
+    <template id="report_patient_recipes">
+      <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+          <t t-call="web.internal_layout">
+            <!-- <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})"/> -->
+              <div class="page">
+                <div class="pull-right">
+                  <p><span t-field="o.recipe_date" t-field-options='{"format": "M/d/y"}'/></p>
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                
+                <div style="margin-left:20%;" class="pull-left">
+                  <p><span t-field="o.patient"/></p>
+                </div>
+                
+                <table style="width:100%;" border="1">
+                  <tr>
+                    <th align="center">
+                      Medicine
+                    </th>
+                    <th align="center">
+                      Quantity
+                    </th>
+                    <th align="center">
+                      Presentation
+                    </th>
+                    <th align="center">
+                      Concentration
+                    </th>
+                    <th align="center">
+                      Indications
+                    </th>
+                  </tr>
+                  <tr t-foreach="o.medication_ids" t-as="l">
+                    <td>
+                      <p t-field="l.medicine"/>
+                    </td>
+                    
+                    <td>
+                      <p t-field="l.quantity"/>
+                    </td>
+                    
+                    <td>
+                      <p t-field="l.presentation"/>
+                    </td>
+                    
+                    <td>
+                      <p t-field="l.concentration"/>
+                    </td>
+
+                    <td>
+                      <p t-field="l.indications"/>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </t>
+          </t>
+        </t>
+      </template>
+  </data>
+</odoo>

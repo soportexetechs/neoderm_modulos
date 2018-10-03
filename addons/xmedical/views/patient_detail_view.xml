@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Patient Diagnoses -->
+    <record id="sb_patient_diagnostics_form_view" model="ir.ui.view">
+        <field name="name">sb.patient_diagnostics.form</field>
+        <field name="model">sb.patient_diagnostics</field>
+        <field name="arch" type="xml">
+            <form string="Patient Diagnoses">
+                <sheet>
+                    <group cols="4">
+                        <group>
+                            <field name="diagnostics_date"/>
+                            <field name="patient" options="{'no_quick_create': True, 'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="diagnosis"/>
+                            <field name="doctor" options="{'no_quick_create': True, 'no_create_edit': True, 'no_create': True, 'no_open': True}" domain="[('partner_type','=', 'doctor')]"/>
+                        </group>
+                        <group>
+                            <field name="reference_image" widget="image"/>
+                            <field name="observations"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                  <field name="message_follower_ids" widget="mail_followers"/>
+                  <field name="message_ids" widget="mail_thread"/>
+               </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="sb_patient_diagnostics_tree_view" model="ir.ui.view">
+        <field name="name">sb.patient_diagnosticsy.tree</field>
+        <field name="model">sb.patient_diagnostics</field>
+        <field name="arch" type="xml">
+            <tree string="Patient Diagnoses">
+                <field name="diagnostics_date"/>
+                <field name="patient"/>
+                <field name="diagnosis"/>
+                <field name="doctor"/>
+                <field name="reference_image"/>
+                <field name="observations"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sb_patient_diagnostics_action" model="ir.actions.act_window">
+            <field name="name">Patient Diagnoses</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sb.patient_diagnostics</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="view_id" ref="sb_patient_diagnostics_tree_view"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add New.
+              </p>
+            </field>
+    </record>
+
+    <menuitem id="sb_patient_diagnostics_menuitem" name="Patient Diagnoses" parent="xmedical_patients" action="sb_patient_diagnostics_action" sequence="30"/>
+
+
+
+    <!-- Patient Recipes -->
+    <record id="sb_patient_recipes_form_view" model="ir.ui.view">
+        <field name="name">sb.patient_recipes.form</field>
+        <field name="model">sb.patient_recipes</field>
+        <field name="arch" type="xml">
+            <form string="Patient Recipes">
+                <sheet>
+                    <group cols="4">
+                        <group>
+                            <field name="patient" options="{'no_quick_create': True, 'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                            <field name="email"/>
+                            <field name="recipe_date"/>
+                        </group>
+                        <group>
+                            <field name="doctor"  options="{'no_quick_create': True, 'no_create_edit': True, 'no_create': True, 'no_open': True}" domain="[('partner_type','=', 'doctor')]"/>
+                            <field name="diagnosis"/>
+                        </group>
+                    </group>
+                    <field name="medication_ids" mode="tree">
+                        <tree>
+                            <field name="medicine"/>
+                            <field name="quantity"/>
+                            <field name="indications"/>
+                            <field name="presentation"/>
+                            <field name="concentration"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sb_patient_recipes_tree_view" model="ir.ui.view">
+        <field name="name">sb.patient_recipes.tree</field>
+        <field name="model">sb.patient_recipes</field>
+        <field name="arch" type="xml">
+            <tree string="Patient Recipes">
+                <field name="recipe_date"/>
+                <field name="patient"/>
+                <field name="email"/>
+                <field name="diagnosis"/>
+                <field name="doctor"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sb_patient_recipes_action" model="ir.actions.act_window">
+            <field name="name">Patient Recipes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sb.patient_recipes</field>
+            <field name="view_type">form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sb_patient_recipes_tree_view"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add New.
+              </p>
+            </field>
+    </record>
+
+    <menuitem id="sb_patient_recipes_menuitem" name="Patient Recipes" parent="xmedical_patients" action="sb_patient_recipes_action" sequence="40"/>
+
+     <!-- Common Diagnostics -->
+    <record id="sb_common_diagnostics_form_view" model="ir.ui.view">
+        <field name="name">sb.common_diagnostics.form</field>
+        <field name="model">sb.common_diagnostics</field>
+        <field name="arch" type="xml">
+            <form string="Common Diagnostics">
+                <sheet>
+                    <field name="diagnosis"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sb_common_diagnostics_tree_view" model="ir.ui.view">
+        <field name="name">sb.common_diagnostics.tree</field>
+        <field name="model">sb.common_diagnostics</field>
+        <field name="arch" type="xml">
+            <tree string="Common Diagnostics" editable="top">
+                <field name="diagnosis"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sb_common_diagnostics_action" model="ir.actions.act_window">
+            <field name="name">Common Diagnostics</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sb.common_diagnostics</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sb_common_diagnostics_tree_view"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add New.
+              </p>
+            </field>
+    </record>
+
+    <menuitem id="sb_common_diagnostics_menuitem" name="Common Diagnostics" parent="xmedical_maintenance" action="sb_common_diagnostics_action" sequence="30"/>
+
+
+</odoo>

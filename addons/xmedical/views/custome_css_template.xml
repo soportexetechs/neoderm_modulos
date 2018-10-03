@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backenda" name="web_calender_custome" inherit_id="web.assets_backend">
+
+            <xpath expr="." position="inside">
+
+                <link rel="stylesheet" href="/xmedical/static/static/css/custome_calendr.css"/>
+                 <script type="text/javascript" src="/xmedical/static/static/js/custom_calender.js"></script>
+            </xpath>
+        </template>
+</odoo>

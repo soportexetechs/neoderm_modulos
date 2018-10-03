@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- res.partner  -->
+    <record model="ir.ui.view" id="sb_patient_directory_form_view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//button[@name='toggle_active']" position="attributes">
+                	<attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='company_type']" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='parent_id']" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='name'][1]" position="attributes">
+                    <attribute name='attrs'>{'invisible':[('partner_type','=','patient')]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='name'][1]" position="before">
+                    <field name='sb_name' readonly='1'/>
+                </xpath>
+
+                <xpath expr="//group" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </xpath>
+
+                <xpath expr="//notebook" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </xpath>
+                <div name="button_box" position="inside">
+                    <button type="object"
+                        class="oe_stat_button"
+                        id="medical_history"
+                        icon="fa-medkit"
+                        name="action_view_medical_history" attrs="{'invisible':[('partner_type','!=','patient')]}">
+                        <div class="o_form_field o_stat_info">
+                             <span class="o_stat_text">Medical History</span></div>
+                    </button>
+                    <button type="object"
+                        class="oe_stat_button"
+                        id="patient_diagnoses"
+                        icon="fa-stethoscope"
+                        attrs="{'invisible':[('partner_type','!=','patient')]}"
+                        name="action_view_patient_diagnoses">
+                        <div class="o_form_field o_stat_info">
+                             <span class="o_stat_text">Diagnoses</span></div>
+                    </button>
+                    <button type="object"
+                        class="oe_stat_button"
+                        id="patient_appoinment"
+                        icon="fa-calendar "
+                        name="action_view_patient_appoinment">
+                        <div class="o_form_field o_stat_info">
+                             <span class="o_stat_text">Appoinment</span></div>
+                    </button>
+                    <button type="object"
+                        class="oe_stat_button"
+                        id="patient_recipes"
+                        icon="fa-plus-square"
+                        name="action_view_patient_recipes">
+                        <div class="o_form_field o_stat_info">
+                             <span class="o_stat_text">Recipes</span></div>
+                    </button>
+                </div>
+
+                <xpath expr="//group[1]" position="before">
+                    <group cols="4" >
+                        <group string='General Data'>
+                            <field name="first_name" attrs="{'required':[('partner_type','=','patient')],'invisible':[('partner_type','!=','patient')]}" />
+                            <field name="second_name"  attrs="{'invisible':[('partner_type','!=','patient')]}"/>
+                            <field name="surname" attrs="{'required':[('partner_type','=','patient')], 'invisible':[('partner_type','!=','patient')]}"/>
+                            <field name="second_surname"  attrs="{'invisible':[('partner_type','!=','patient')]}"/>
+                            <field name="family_dr_id"  domain="[('partner_type','=', 'doctor'), ('supplier', '=', True)]" options="{'no_quick_create': True, 'no_create_edit': True, 'no_create': True, 'no_open': True}" attrs="{'invisible':[('partner_type','!=','patient')]}"/>
+                            <field name="phone_no" required="1"/>
+                            <field name="secondary_phone"/>
+                            <field name="email_id"/>
+                            <field name="doctor_speciality" attrs="{'invisible': [('partner_type','!=', 'doctor')]}" />
+                            <field name="birth_date"  attrs="{'invisible':[('partner_type','!=','patient')]}"/>
+                            <field name="age"  attrs="{'invisible':[('partner_type','!=','patient')]}"/>
+                            <field name="no_current_file" attrs="{'invisible': [('partner_type','!=', 'patient')]}"/>
+                            <field name="referred_by" attrs="{'invisible': [('partner_type','!=', 'patient')]}"/>
+
+                        </group>
+                        <group name='billing_data' string='Billing Data'  attrs="{'invisible': [('partner_type','!=', 'patient')]}">
+                            <field name="name_to_invoice"/>
+                            <field name="nit"/>
+                            <field name="billing_address"/>
+                            <field name="partner_type"  invisible="1"/>
+                            <field name="state_medical_history"/>
+
+                            <field name="insurance_carrier" options="{'no_quick_create': True, 'no_create_edit': True, 'no_create': True, 'no_open': True}" domain="[('partner_type','=', 'insura')]"/>
+                            <field name="certificate"/>
+                            <field name="policy"/>
+                        </group>
+                    </group>
+                </xpath>
+
+                <!-- <xpath expr="//notebook" position="after">
+                    <notebook colspan="4"  attrs="{'invisible': [('partner_type','!=', 'patient')]}">
+                        <page string="Health Insurance">
+                            <group cols="4">
+                                <group>
+                                    <field name="insurance_carrier" options="{'no_quick_create': True, 'no_create_edit': True, 'no_create': True, 'no_open': True}" domain="[('partner_type','=', 'insura')]"/>
+                                </group>
+                                <group>
+                                    <field name="certificate"/>
+                                    <field name="policy"/>
+                                </group>
+                            </group>
+                        </page>
+                        
+                    </notebook>
+                </xpath> -->
+                <xpath expr="//div[@class='oe_chatter']" position="replace"/>
+            </data>
+        </field>
+    </record>
+
+<!-- Patient Directory -->
+    <record id="sb_patient_directory_tree_view" model="ir.ui.view">
+        <field name="name">res.partner.tree</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <tree string="Patient Directory">
+                <field name="sb_name"/>
+                <field name="birth_date"/>
+                <field name="age"/>
+                <field name="phone_no"/>
+                <field name="email_id"/>
+                <field name="insurance_carrier"/>
+                <field name="state_medical_history"/>
+                <field name="no_current_file"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sb_patient_directory_action" model="ir.actions.act_window">
+            <field name="name">Patient Directory</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('customer','=', True), ('partner_type', '=', 'patient')]</field>
+            <field name="context">{'default_partner_type':'patient','default_customer':True,'default_supplier':False}</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sb_patient_directory_tree_view"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add New.
+              </p>
+            </field>
+    </record>
+
+    <menuitem id="sb_patient_directory_menuitem" name="Patient Directory" parent="xmedical_patients" action="sb_patient_directory_action" sequence="10"/>
+
+
+<!-- Doctors -->
+    <record id="sb_doctors_tree_view" model="ir.ui.view">
+        <field name="name">res.partner.tree</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <tree string="Doctors">
+                <field name="name"/>
+                <field name="phone_no"/>
+                <field name="email_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sb_doctors_action" model="ir.actions.act_window">
+            <field name="name">Doctors</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('partner_type','=','doctor')]</field>
+            <field name="context">{'default_partner_type':'doctor','default_customer':False,'default_supplier':True}</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sb_doctors_tree_view"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add New.
+              </p>
+            </field>
+    </record>
+
+    <menuitem id="sb_doctors_menuitem" name="Doctors" parent="xmedical_maintenance" action="sb_doctors_action" sequence="50"/>
+
+</odoo>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="upload_partner_data" model="ir.ui.view">
+        <field name="name">Upload Partner</field>
+        <field name="model">partner.data.import</field>
+        <field name="arch" type="xml">
+            <form string="Export Data">
+                <group colspan="2">
+                    <field name="xls_file" string="Select File"/>
+                </group>
+                <footer>
+                    <button name="import_data_partner" string="Upload Partner" type="object" default_focus="1" class="oe_highlight"/>
+                    or 
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+	<record id="action_import_partner_data" model="ir.actions.act_window">
+        <field name="name">Partner Data</field>
+        <field name="res_model">partner.data.import</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="upload_partner_data"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="import_partner_data_id_customer" name="Import Customers" parent="menu_finance_receivables_import_data"
+        action="action_import_partner_data" sequence="1"/>
+
+    <menuitem id="import_partner_data_id_vendor" name="Import Vendors" parent="menu_finance_payables_import_data"
+        action="action_import_partner_data" sequence="1"/>
+</odoo>

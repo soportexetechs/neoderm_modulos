@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<menuitem id="xmedical_root_menu" name="Medical Clinic" web_icon="xmedical,static/description/icon.png"/>
+    <menuitem id="xmedical_appointment_calender" name="Appointment Calender" parent="xmedical_root_menu" sequence="1"/>
+    <menuitem id="xmedical_patients" name="Patients" parent="xmedical_root_menu" sequence="2"/>
+    <menuitem id="xmedical_maintenance" name="Maintenance" parent="xmedical_root_menu" sequence="3"/>
+</odoo>

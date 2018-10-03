@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="upload_product_id" model="ir.ui.view">
+        <field name="name">Upload Product</field>
+        <field name="model">product.data.import</field>
+        <field name="arch" type="xml">
+            <form string="Product Data">
+                <group colspan="2">
+                    <field name="xls_file" string="Select File"/>
+                </group>
+                <footer>
+                    <button name="import_data_product" string="Upload Product" type="object" default_focus="1" class="oe_highlight"/>
+                    or 
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+	<record id="action_import_product_data" model="ir.actions.act_window">
+        <field name="name">Upload Product</field>
+        <field name="res_model">product.data.import</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="upload_product_id"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="import_product_data_id_customer" name="Import Product" parent="menu_finance_receivables_import_data"
+        action="action_import_product_data" sequence="2"/>
+
+    <menuitem id="import_product_data_id_vendor" name="Import Product" parent="menu_finance_payables_import_data"
+        action="action_import_product_data" sequence="2"/>
+
+</odoo>

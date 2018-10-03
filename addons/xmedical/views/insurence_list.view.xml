@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	    <!-- Insurance Companies List -->
+    <record id="sb_insurance_companies_list_form_view" model="ir.ui.view">
+        <field name="name">sb.insurance_companies_list.form</field>
+        <field name="model">sb.insurance_companies_list</field>
+        <field name="arch" type="xml">
+            <form string="Insurance Companies List">
+                <sheet>
+                    <h2><field name="name"/></h2>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sb_insurance_companies_list_tree_view" model="ir.ui.view">
+        <field name="name">sb.insurance_companies_list.tree</field>
+        <field name="model">sb.insurance_companies_list</field>
+        <field name="arch" type="xml">
+            <tree string="Insurance Companies List">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sb_insurance_companies_list_action" model="ir.actions.act_window">
+            <field name="name">Insurance Company List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sb.insurance_companies_list</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sb_insurance_companies_list_tree_view"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add New.
+              </p>
+            </field>
+    </record>
+
+
+    <record id="sb_insura_action" model="ir.actions.act_window">
+            <field name="name">Insurance Companies List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('partner_type','=','insura')]</field>
+            <field name="context">{'default_partner_type':'insura','default_customer':False,'default_supplier':True}</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add New.
+              </p>
+            </field>
+    </record>
+
+    <menuitem id="sb_insurance_companies_list_menuitem" name="Insurance Companies List" parent="xmedical_maintenance" action="sb_insura_action" sequence="10"/>
+
+
+</odoo>

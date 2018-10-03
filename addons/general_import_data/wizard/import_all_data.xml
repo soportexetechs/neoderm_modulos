@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="upload_data" model="ir.ui.view">
+        <field name="name">Upload Data</field>
+        <field name="model">get.all.data.import</field>
+        <field name="arch" type="xml">
+            <form string="Export Data">
+                <group colspan="2">
+                    <field name="xls_file" string="Select File"/>
+                </group>
+                <footer>
+                    <button name="import_data_partner" string="Upload Partner" type="object" default_focus="1" class="oe_highlight"/>
+                    <button name="import_data_tax" string="Upload Tax" type="object" default_focus="1" class="oe_highlight"/>
+                    <button name="import_data_product" string="Upload Product" type="object" default_focus="1" class="oe_highlight"/>
+                    <button name="import_data_invoice" string="Upload invoice" type="object" default_focus="1" class="oe_highlight"/>
+                    <button name="import_data_payment" string="Upload Payment" type="object" default_focus="1" class="oe_highlight"/>
+                    <!-- <button name="import_data" string="Upload all in one" type="object" default_focus="1" class="oe_highlight"/> -->
+                    or 
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+	<record id="action_import_all_data" model="ir.actions.act_window">
+        <field name="name">Upload Data</field>
+        <field name="res_model">get.all.data.import</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="upload_data"/>
+        <field name="target">new</field>
+    </record>
+
+	<menuitem
+        id="import_curent_month_data_id"
+        name="Import Data"
+        action="action_import_all_data"
+       />
+
+</odoo>

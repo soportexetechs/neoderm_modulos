@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<menuitem id="menu_finance_receivables_import_data" name="Import Data" parent="account.menu_finance_receivables" sequence="4"/>
+
+	<menuitem id="menu_finance_payables_import_data" name="Import Data" parent="account.menu_finance_payables" sequence="3"/>
+
+</odoo>

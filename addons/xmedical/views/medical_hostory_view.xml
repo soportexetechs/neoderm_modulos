@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	
+    <!-- Medical History -->
+    <record id="sb_medical_history_form_view" model="ir.ui.view">
+        <field name="name">sb.medical_history.form</field>
+        <field name="model">sb.medical_history</field>
+        <field name="arch" type="xml">
+            <form string="Medical History">
+                <sheet>
+                    <group cols="4">
+                        <group string='General Data'>
+                            <field name="todays_date"/>
+                            <field name="patient" domain="[('state_medical_history','=','pending'), ('customer', '=', True)]" options="{'no_create': True}"/>
+                            <field name="first_name"/>
+                            <field name="second_name"/>
+                            <field name="surname"/>
+                            <field name="second_surname"/>
+                            <field name="phone"/>
+                            <field name="secondary_phone"/>
+                            <field name="email"/>
+                            <field name="birth_date"/>
+                            <field name="referred_by"/>
+                            <field name="photography"/>
+                        </group>
+                        <group string='Health Insurance'>
+                        	
+                            <field name="do_you_have_medical_insurance"/>
+                            <field name="insurance_name" domain="[('partner_type','=', 'insura')]" attrs="{'invisible':[('do_you_have_medical_insurance','!=', 'yes')]}"/>
+                            <field name="certificate" attrs="{'invisible':[('do_you_have_medical_insurance','!=', 'yes')]}"/>
+                            <field name="policy" attrs="{'invisible':[('do_you_have_medical_insurance','!=', 'yes')]}"/>
+                        </group>
+                        <group string='General'>
+                            <field name="reason_1st_consultation"/>
+                            <field name="do_you_have_allergies_to_any_medication_or_food"/>
+                            <field name="allergies"/>
+                            <field name="have_you_injected_local_anesthesia"/>
+                            <field name="did_you_have_any_adverse_reaction_to_anesthesia"/>
+                            <field name="do_you_currently_take_any_medication"/>
+                            <field name="medicines"/>
+                            <field name="pregnancy"/>
+                        </group>
+                        <group string='Lungs'>
+                            <field name="bronchitis"/>
+                            <field name="asthma"/>
+                            <field name="emphysema"/>
+                            <field name="difficulty_breathing"/>
+                        </group>
+                        <group string='Cardiovascular'>
+                            <field name="high_pressure"/>
+                            <field name="heart_attacks"/>
+                            <field name="bad_coagulation"/>
+                            <field name="chest_pain"/>
+                            <field name="tachycardia"/>
+                            <field name="pacemaker"/>
+                        </group>
+                        <group string='Other Sytemic'>
+                            <field name="diabetes"/>
+                            <field name="kidneys"/>
+                            <field name="seizures_epilepsy"/>
+                            <field name="urinary_infections"/>
+                            <field name="cancer"/>
+                            <field name="thyroid"/>
+                            <field name="arthritis"/>
+                            <field name="fainting"/>
+                            <field name="hepatitis"/>
+                            <field name="some_other_condition"/>
+                        </group>
+                        <group string='Habits'>
+                            <field name="smoke" widget="radio" options="{'horizontal': true}" required="1"/>
+                            <field name="bebe" widget="radio" options="{'horizontal': true}" required="1"/>
+                            <field name="drugs" widget="radio" options="{'horizontal': true}" required="1"/>
+                            <field name="specify" widget="radio" options="{'horizontal': true}" required="1"/>
+                        </group>
+                        <group string='Skin'>
+                            <field name="skin_cancer"/>
+                            <field name="familiar_with_skin_cancer"/>
+                            <field name="relationship"/>
+                            <field name="bleed_easily"/>
+                            <field name="specific_disease"/>
+                            <field name="which"/>
+                            <field name="keloid_healing"/>
+                            <field name="operations"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sb_medical_history_tree_view" model="ir.ui.view">
+        <field name="name">sb.medical_history.tree</field>
+        <field name="model">sb.medical_history</field>
+        <field name="arch" type="xml">
+            <tree string="Medical History">
+                    <field name="patient"/>
+                    <field name="phone"/>
+                    <field name="secondary_phone"/>
+                    <field name="email"/>
+                    <field name="birth_date"/>
+                    <field name="referred_by"/>
+                    <field name="photography"/>
+                    <field name="reason_1st_consultation"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sb_medical_history_search_view" model="ir.ui.view">
+        <field name="name">sb.medical_history.search</field>
+        <field name="model">sb.medical_history</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="patient" string="patient Name"/>
+                <field name="insurance_name" string="Insurance Company"/>
+                <separator/>
+            </search>
+        </field>
+    </record>
+
+    <record id="sb_medical_history_action" model="ir.actions.act_window">
+            <field name="name">Medical History</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sb.medical_history</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sb_medical_history_tree_view"/>
+            <field name="domain">[]</field>
+            <field name="search_view_id" ref="sb_medical_history_search_view"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add New.
+              </p>
+            </field>
+    </record>
+
+    <menuitem id="sb_medical_history_menuitem" name="Medical History" parent="xmedical_patients" action="sb_medical_history_action" sequence="20"/>
+
+</odoo>

@@ -1,0 +1,880 @@
+<odoo>
+<data>
+
+    <menuitem id="xmedical_root_menu" name="Medical Clinic" web_icon="xmedical,static/description/icon.png"/>
+    <menuitem id="xmedical_appointment_calender" name="Appointment Calender" parent="xmedical_root_menu" sequence="1"/>
+    <menuitem id="xmedical_patients" name="Patients" parent="xmedical_root_menu" sequence="2"/>
+    <menuitem id="xmedical_maintenance" name="Maintenance" parent="xmedical_root_menu" sequence="3"/>
+
+
+<!--     <record model="ir.ui.view" id="partner_view_buttons">
+        <field name="name">partner.view.buttons</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="priority" eval="20"/>
+        <field name="groups_id" eval="[(4, ref('account.group_account_invoice'))]"/>
+        <field name="arch" type="xml">
+            <div class="oe_button_box" position="inside">
+                <button type="object" class="oe_stat_button" icon="fa-pencil-square-o" name="action_view_partner_invoices"
+                        attrs="{'invisible': [('customer', '=', False)]}">
+                    <div class="o_form_field o_stat_info">
+                        <span class="o_stat_value">
+                            <field name="total_invoiced" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                        </span>
+                        <span class="o_stat_text">Invoiced</span>
+                    </div>
+                </button>
+                <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                    <field name="active" widget="boolean_button" options="{'terminology': 'archive'}" on_change="1" modifiers="{}"/>
+                </button>
+            </div>
+        </field>
+    </record> -->
+
+    <record id="action_open_patient_medical_history" model="ir.actions.act_window">
+        <field name="context">{'search_default_patient': [active_id], 'default_patient': active_id}</field>
+        <field name="name">Medical History</field>
+        <field name="name">[('patient','=',active_id)]</field>
+        <field name="res_model">sb.medical_history</field>
+    </record>
+
+    <record model="ir.ui.view" id="patient_medical_history_count">
+        <field name="name">patient_medical_history_count</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='toggle_active'][1]" position="before">
+                <field name="partner_type" invisible="1"/>
+                <button class="oe_stat_button" type="action" 
+                        name="%(xmedical.action_open_patient_medical_history)d" 
+                        icon="fa-heartbeat" 
+                        attrs="{'invisible': [('partner_type','!=', 'patient')]}">
+                    <field string="Medical History" name="no_of_medical_history" widget="statinfo" sequence='0'/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_open_patient_appointments" model="ir.actions.act_window">
+        <field name="context">{'search_default_patient_id': [active_id], 'default_patient_id': active_id}</field>
+        <field name="domain">[('patient_id','=',active_id)]</field>
+        <field name="name">Appointments</field>
+        <field name="res_model">sb.appointment_calender</field>
+    </record>
+    
+    <record model="ir.ui.view" id="patient_medical_appointment_count">
+        <field name="name">patient_medical_appointment_count</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='toggle_active'][1]" position="before">
+                <button class="oe_stat_button" type="action" name="%(xmedical.action_open_patient_appointments)d"
+                    icon="fa-calendar" attrs="{'invisible': [('partner_type','!=', 'patient')]}">
+                    <field string="Appointments" name="no_of_appointments" widget="statinfo" sequence='1'/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_open_patient_diagnostics" model="ir.actions.act_window">
+        <field name="context">{'search_default_patient': [active_id], 'default_patient': active_id}</field>
+        <field name="name">[('patient','=',active_id)]</field>
+        <field name="name">Diagnosis</field>
+        <field name="res_model">sb.patient_diagnostics</field>
+    </record>
+
+    <record model="ir.ui.view" id="patient_medical_diagnostics_count">
+        <field name="name">patient_medical_diagnostics_count</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='toggle_active'][1]" position="before">
+                <button class="oe_stat_button" type="action" name="%(xmedical.action_open_patient_diagnostics)d"
+                    icon="fa-stethoscope" attrs="{'invisible': [('partner_type','!=', 'patient')]}">
+                    <field string="Patient Diagnostics" name="no_of_diagnostics" widget="statinfo" sequence='2'/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_open_patient_recipes" model="ir.actions.act_window">
+        <field name="context">{'search_default_patient': [active_id], 'default_patient': active_id}</field>
+        <field name="name">Patient Recipes</field>
+        <field name="res_model">sb.patient_recipes</field>
+    </record>
+
+    <record model="ir.ui.view" id="patient_recipes_count">
+        <field name="name">patient_recipes_count</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='toggle_active'][1]" position="before">
+                <button class="oe_stat_button" type="action" id="patient_recipes_count_button" name="%(xmedical.action_open_patient_recipes)d" icon="fa-list-alt" attrs="{'invisible': [('partner_type','!=', 'patient')]}">
+                    <field string="Patient Recipes" name="no_of_recipes" widget="statinfo" sequence='4'/>
+                </button>
+                
+            </xpath>
+        </field>
+    </record>
+
+        
+   <!--  <record model="ir.ui.view" id="account_sb_patient_directory_form_view">
+        <field name="name">res.partner.sb.account.button.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="account.partner_view_buttons"/>
+        <field name="arch" type="xml">
+            <data> -->
+                <!-- SAMPLE CODE TO HIDE EXISTING BUTTON FROM ACCOUNT MODUEL  [NOTE: HERE ANALYTICAL BUTTON REMOVED] -->
+         <!--        <xpath expr="//button[@name='open_partner_history']"
+                       position="replace"/> -->
+                <!-- ADD SAME BUTTON CODE AGAIN HERE WITH BEFORE OR AFTER POSITION AS REQUIRED -->
+           <!--  </data>
+        </field>
+    </record> -->
+
+    <!-- REMOVE INVOICE BUTTON INHERIT account.partner_view_buttons VIEW AND XPATH WITH //button[@name='open_partner_history']-->
+
+
+
+
+<!-- res.partner  -->
+    <record model="ir.ui.view" id="sb_patient_directory_form_view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//button[@name='toggle_active']" position="attributes">
+                	<attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='company_type']" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='parent_id']" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='name'][1]" position="attributes">
+                    <attribute name='attrs'>{'invisible':[('partner_type','=','patient')]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='name'][1]" position="before">
+                    <field name='sb_name' readonly='1'/>
+                </xpath>
+
+                <xpath expr="//group" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </xpath>
+
+                <xpath expr="//notebook" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </xpath>
+
+                <xpath expr="//group[1]" position="before">
+                    <group cols="4" >
+                        <group string='General Data'>
+                            <field name="first_name" attrs="{'required':[('partner_type','=','patient')],'invisible':[('partner_type','!=','patient')]}" />
+                            <field name="second_name"  attrs="{'invisible':[('partner_type','!=','patient')]}"/>
+                            <field name="surname" attrs="{'required':[('partner_type','=','patient')], 'invisible':[('partner_type','!=','patient')]}"/>
+                            <field name="second_surname"  attrs="{'invisible':[('partner_type','!=','patient')]}"/>
+                            <field name="phone_no"/>
+                            <field name="secondary_phone"/>
+                            <field name="email_id"/>
+                            <field name="doctor_speciality" attrs="{'invisible': [('partner_type','!=', 'doctor')]}"/>
+                            <field name="birth_date"  attrs="{'invisible':[('partner_type','!=','patient')]}"/>
+                            <field name="age"  attrs="{'invisible':[('partner_type','!=','patient')]}"/>
+                            <field name="no_current_file" attrs="{'invisible': [('partner_type','!=', 'patient')]}"/>
+                            <field name="referred_by" attrs="{'invisible': [('partner_type','!=', 'patient')]}"/>
+                        </group>
+                        <group name='billing_data' string='Billing Data'  attrs="{'invisible': [('partner_type','!=', 'patient')]}">
+                            <field name="name_to_invoice"/>
+                            <field name="nit"/>
+                            <field name="billing_address"/>
+                            <field name="partner_type"  invisible="1"/>
+                        </group>
+                    </group>
+                </xpath>
+
+                <xpath expr="//notebook" position="after">
+                    <notebook colspan="4"  attrs="{'invisible': [('partner_type','!=', 'patient')]}">
+                        <page string="Health Insurance">
+                            <group cols="4">
+                                <group>
+                                    <field name="insurance_carrier" context="{'default_partner_type':'insura','default_customer':False,'default_supplier':True}" domain="[('partner_type','=', 'insura')]"/>
+                                </group>
+                                <group>
+                                    <field name="certificate"/>
+                                    <field name="policy"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Medical History" editable='top'>
+                            <group cols="4">
+                                <group>
+                                    <field name="state_medical_history"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string='New Page'>
+                            
+                        </page>
+                    </notebook>
+                </xpath>
+                <xpath expr="//div[@class='oe_chatter']" position="replace"/>
+            </data>
+        </field>
+    </record>
+
+<!-- Patient Directory -->
+    <record id="sb_patient_directory_tree_view" model="ir.ui.view">
+        <field name="name">res.partner.tree</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <tree string="Patient Directory">
+                <field name="sb_name"/>
+                <field name="birth_date"/>
+                <field name="age"/>
+                <field name="phone_no"/>
+                <field name="email_id"/>
+                <field name="insurance_carrier"/>
+                <field name="state_medical_history"/>
+                <field name="no_current_file"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sb_patient_directory_action" model="ir.actions.act_window">
+            <field name="name">Patient Directory</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('customer','=', True)]</field>
+            <field name="context">{'default_partner_type':'patient','default_customer':True,'default_supplier':False}</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sb_patient_directory_tree_view"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add New.
+              </p>
+            </field>
+    </record>
+
+    <menuitem id="sb_patient_directory_menuitem" name="Patient Directory" parent="xmedical_patients" action="sb_patient_directory_action" sequence="10"/>
+
+
+    <!-- Medical History -->
+    <record id="sb_medical_history_form_view" model="ir.ui.view">
+        <field name="name">sb.medical_history.form</field>
+        <field name="model">sb.medical_history</field>
+        <field name="arch" type="xml">
+            <form string="Medical History">
+                <sheet>
+                    <group cols="4">
+                        <group string='General Data'>
+                            <field name="todays_date"/>
+                            <field name="patient" domain="[('state_medical_history','=','pending')]" options="{'no_create': True}"/>
+                            <field name="first_name"/>
+                            <field name="second_name"/>
+                            <field name="surname"/>
+                            <field name="second_surname"/>
+                            <field name="phone"/>
+                            <field name="secondary_phone"/>
+                            <field name="email"/>
+                            <field name="birth_date"/>
+                            <field name="referred_by"/>
+                            <field name="photography"/>
+                        </group>
+                        <group string='Health Insurance'>
+                        	
+                            <field name="do_you_have_medical_insurance"/>
+                            <field name="insurance_name" domain="[('partner_type','=', 'insura')]"/>
+                            <field name="certificate"/>
+                            <field name="policy"/>
+                        </group>
+                        <group string='General'>
+                            <field name="reason_1st_consultation"/>
+                            <field name="do_you_have_allergies_to_any_medication_or_food"/>
+                            <field name="allergies"/>
+                            <field name="have_you_injected_local_anesthesia"/>
+                            <field name="did_you_have_any_adverse_reaction_to_anesthesia"/>
+                            <field name="do_you_currently_take_any_medication"/>
+                            <field name="medicines"/>
+                            <field name="pregnancy"/>
+                        </group>
+                        <group string='Lungs'>
+                            <field name="bronchitis"/>
+                            <field name="asthma"/>
+                            <field name="emphysema"/>
+                            <field name="difficulty_breathing"/>
+                        </group>
+                        <group string='Cardiovascular'>
+                            <field name="high_pressure"/>
+                            <field name="heart_attacks"/>
+                            <field name="bad_coagulation"/>
+                            <field name="chest_pain"/>
+                            <field name="tachycardia"/>
+                            <field name="pacemaker"/>
+                        </group>
+                        <group string='Other Sytemic'>
+                            <field name="diabetes"/>
+                            <field name="kidneys"/>
+                            <field name="seizures_epilepsy"/>
+                            <field name="urinary_infections"/>
+                            <field name="cancer"/>
+                            <field name="thyroid"/>
+                            <field name="arthritis"/>
+                            <field name="fainting"/>
+                            <field name="hepatitis"/>
+                            <field name="some_other_condition"/>
+                        </group>
+                        <group string='Habits'>
+                            <field name="smoke"/>
+                            <field name="bebe"/>
+                            <field name="drugs"/>
+                            <field name="specify"/>
+                        </group>
+                        <group string='Skin'>
+                            <field name="skin_cancer"/>
+                            <field name="familiar_with_skin_cancer"/>
+                            <field name="relationship"/>
+                            <field name="bleed_easily"/>
+                            <field name="specific_disease"/>
+                            <field name="which"/>
+                            <field name="keloid_healing"/>
+                            <field name="operations"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sb_medical_history_tree_view" model="ir.ui.view">
+        <field name="name">sb.medical_history.tree</field>
+        <field name="model">sb.medical_history</field>
+        <field name="arch" type="xml">
+            <tree string="Medical History">
+                    <field name="patient"/>
+                    <field name="phone"/>
+                    <field name="secondary_phone"/>
+                    <field name="email"/>
+                    <field name="birth_date"/>
+                    <field name="referred_by"/>
+                    <field name="photography"/>
+                    <field name="reason_1st_consultation"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sb_medical_history_action" model="ir.actions.act_window">
+            <field name="name">Medical History</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sb.medical_history</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sb_medical_history_tree_view"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add New.
+              </p>
+            </field>
+    </record>
+
+    <menuitem id="sb_medical_history_menuitem" name="Medical History" parent="xmedical_patients" action="sb_medical_history_action" sequence="20"/>
+
+
+    <!-- Patient Diagnoses -->
+    <record id="sb_patient_diagnostics_form_view" model="ir.ui.view">
+        <field name="name">sb.patient_diagnostics.form</field>
+        <field name="model">sb.patient_diagnostics</field>
+        <field name="arch" type="xml">
+            <form string="Patient Diagnoses">
+                <sheet>
+                    <group cols="4">
+                        <group>
+                            <field name="diagnostics_date"/>
+                            <field name="patient"/>
+                            <field name="diagnosis"/>
+                            <field name="doctor" context="{'default_partner_type':'doctor','default_customer':False,'default_supplier':True}" domain="[('partner_type','=', 'doctor')]"/>
+                        </group>
+                        <group>
+                            <field name="reference_image" widget="image"/>
+                            <field name="observations"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                  <field name="message_follower_ids" widget="mail_followers"/>
+                  <field name="message_ids" widget="mail_thread"/>
+               </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="sb_patient_diagnostics_tree_view" model="ir.ui.view">
+        <field name="name">sb.patient_diagnosticsy.tree</field>
+        <field name="model">sb.patient_diagnostics</field>
+        <field name="arch" type="xml">
+            <tree string="Patient Diagnoses">
+                <field name="diagnostics_date"/>
+                <field name="patient"/>
+                <field name="diagnosis"/>
+                <field name="doctor"/>
+                <field name="reference_image"/>
+                <field name="observations"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sb_patient_diagnostics_action" model="ir.actions.act_window">
+            <field name="name">Patient Diagnoses</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sb.patient_diagnostics</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sb_patient_diagnostics_tree_view"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add New.
+              </p>
+            </field>
+    </record>
+
+    <menuitem id="sb_patient_diagnostics_menuitem" name="Patient Diagnoses" parent="xmedical_patients" action="sb_patient_diagnostics_action" sequence="30"/>
+
+
+    <!-- Patient Recipes -->
+    <record id="sb_patient_recipes_form_view" model="ir.ui.view">
+        <field name="name">sb.patient_recipes.form</field>
+        <field name="model">sb.patient_recipes</field>
+        <field name="arch" type="xml">
+            <form string="Patient Recipes">
+                <sheet>
+                    <group cols="4">
+                        <group>
+                            <field name="recipe_date"/>
+                            <field name="patient"/>
+                            <field name="email"/>
+                        </group>
+                        <group>
+                            <field name="diagnosis"/>
+                            <field name="doctor"  context="{'default_partner_type':'doctor','default_customer':False,'default_supplier':True}" domain="[('partner_type','=', 'doctor')]"/>
+                        </group>
+                    </group>
+                    <field name="medication_ids"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sb_patient_recipes_tree_view" model="ir.ui.view">
+        <field name="name">sb.patient_recipes.tree</field>
+        <field name="model">sb.patient_recipes</field>
+        <field name="arch" type="xml">
+            <tree string="Patient Recipes">
+                <field name="recipe_date"/>
+                <field name="patient"/>
+                <field name="email"/>
+                <field name="diagnosis"/>
+                <field name="doctor"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sb_patient_recipes_action" model="ir.actions.act_window">
+            <field name="name">Patient Recipes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sb.patient_recipes</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sb_patient_recipes_tree_view"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add New.
+              </p>
+            </field>
+    </record>
+
+    <menuitem id="sb_patient_recipes_menuitem" name="Patient Recipes" parent="xmedical_patients" action="sb_patient_recipes_action" sequence="40"/>
+
+
+    <!-- Insurance Companies List -->
+    <record id="sb_insurance_companies_list_form_view" model="ir.ui.view">
+        <field name="name">sb.insurance_companies_list.form</field>
+        <field name="model">sb.insurance_companies_list</field>
+        <field name="arch" type="xml">
+            <form string="Insurance Companies List">
+                <sheet>
+                    <h2><field name="name"/></h2>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sb_insurance_companies_list_tree_view" model="ir.ui.view">
+        <field name="name">sb.insurance_companies_list.tree</field>
+        <field name="model">sb.insurance_companies_list</field>
+        <field name="arch" type="xml">
+            <tree string="Insurance Companies List">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sb_insurance_companies_list_action" model="ir.actions.act_window">
+            <field name="name">Insurance Company List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sb.insurance_companies_list</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sb_insurance_companies_list_tree_view"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add New.
+              </p>
+            </field>
+    </record>
+
+
+    <record id="sb_insura_action" model="ir.actions.act_window">
+            <field name="name">Insurance Companies List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('partner_type','=','insura')]</field>
+            <field name="context">{'default_partner_type':'insura','default_customer':False,'default_supplier':True}</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add New.
+              </p>
+            </field>
+    </record>
+
+    <menuitem id="sb_insurance_companies_list_menuitem" name="Insurance Companies List" parent="xmedical_maintenance" action="sb_insura_action" sequence="10"/>
+
+
+
+    <!-- Appointment Types -->
+    <record id="sb_appointment_types_form_view" model="ir.ui.view">
+        <field name="name">sb.appointment_types.form</field>
+        <field name="model">sb.appointment_types</field>
+        <field name="arch" type="xml">
+            <form string="Appointment Types">
+                <sheet>
+                    <field name="name"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sb_appointment_types_tree_view" model="ir.ui.view">
+        <field name="name">sb.appointment_types.tree</field>
+        <field name="model">sb.appointment_types</field>
+        <field name="arch" type="xml">
+            <tree string="Appointment Types" editable="top">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sb_appointment_types_action" model="ir.actions.act_window">
+            <field name="name">Appointment Types</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sb.appointment_types</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sb_appointment_types_tree_view"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add New.
+              </p>
+            </field>
+    </record>
+
+    <menuitem id="sb_appointment_types_menuitem" name="Appointment Types" parent="xmedical_maintenance" action="sb_appointment_types_action" sequence="20"/>
+
+
+    <!-- Common Diagnostics -->
+    <record id="sb_common_diagnostics_form_view" model="ir.ui.view">
+        <field name="name">sb.common_diagnostics.form</field>
+        <field name="model">sb.common_diagnostics</field>
+        <field name="arch" type="xml">
+            <form string="Common Diagnostics">
+                <sheet>
+                    <field name="diagnosis"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sb_common_diagnostics_tree_view" model="ir.ui.view">
+        <field name="name">sb.common_diagnostics.tree</field>
+        <field name="model">sb.common_diagnostics</field>
+        <field name="arch" type="xml">
+            <tree string="Common Diagnostics" editable="top">
+                <field name="diagnosis"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sb_common_diagnostics_action" model="ir.actions.act_window">
+            <field name="name">Common Diagnostics</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sb.common_diagnostics</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sb_common_diagnostics_tree_view"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add New.
+              </p>
+            </field>
+    </record>
+
+    <menuitem id="sb_common_diagnostics_menuitem" name="Common Diagnostics" parent="xmedical_maintenance" action="sb_common_diagnostics_action" sequence="30"/>
+
+
+    <!-- Medications For Recipes -->
+    <record id="sb_medications_for_recipes_form_view" model="ir.ui.view">
+        <field name="name">sb.medications_for_recipes.form</field>
+        <field name="model">sb.medications_for_recipes</field>
+        <field name="arch" type="xml">
+            <form string="Medications For Recipes">
+                <sheet>
+                    <h2><field name="medicine"/></h2>
+                    <group cols="4">
+                        <group>
+                            <field name="quantity"/>
+                            <field name="presentation"/>
+                            <field name="concentration"/>
+                            <field name="indications"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sb_medications_for_recipes_tree_view" model="ir.ui.view">
+        <field name="name">sb.medications_for_recipes.tree</field>
+        <field name="model">sb.medications_for_recipes</field>
+        <field name="arch" type="xml">
+            <tree string="Medications For Recipes" editable="bottom">
+                <field name="medicine"/>
+                <field name="quantity"/>
+                <field name="presentation" invisible="1"/>
+                <field name="concentration" invisible="1"/>
+                <field name="indications"/>
+                <field name="receipt_id" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sb_medications_for_recipes_action" model="ir.actions.act_window">
+            <field name="name">Medications For Recipes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sb.medications_for_recipes</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sb_medications_for_recipes_tree_view"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add New.
+              </p>
+            </field>
+    </record>
+
+    <!-- menuitem id="sb_medications_for_recipes_menuitem" name="Medications For Recipes" parent="xmedical_maintenance" action="sb_medications_for_recipes_action" sequence="40"/ -->
+
+
+<!-- Doctors -->
+    <record id="sb_doctors_tree_view" model="ir.ui.view">
+        <field name="name">res.partner.tree</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <tree string="Doctors">
+                <field name="name"/>
+                <field name="phone_no"/>
+                <field name="email_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sb_doctors_action" model="ir.actions.act_window">
+            <field name="name">Doctors</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('partner_type','=','doctor')]</field>
+            <field name="context">{'default_partner_type':'doctor','default_customer':False,'default_supplier':True}</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sb_doctors_tree_view"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add New.
+              </p>
+            </field>
+    </record>
+
+    <menuitem id="sb_doctors_menuitem" name="Doctors" parent="xmedical_maintenance" action="sb_doctors_action" sequence="50"/>
+
+
+<!-- Appointment Calender -->
+    <record id="sb_appointment_calender_form_view" model="ir.ui.view">
+        <field name="name">sb.appointment_calender.form</field>
+        <field name="model">sb.appointment_calender</field>
+        <field name="arch" type="xml">
+            <form string="Appointment Calender" >
+                <sheet>
+                    <h1><field name="name" placeholder="Appointment Summery..."/></h1>
+                    <group cols="4">
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="appointment_duration"/>
+                            <!-- <field name="patient_id" options="{'no_create': True}"/> -->
+                            <field name="patient_id" context="{'default_partner_type':'patient','default_customer':True,'default_supplier':False}" domain="[('partner_type','=', 'patient')]" options="{'no_quick_create': true, 'no_create_edit': false}"/>
+                            <field name="email"/>
+                            <field name="phone"/>
+                            <field name="appointment_type_id"/>
+                            <field name="insurance_note"  domain="[('partner_type','=','insura')]"/>
+                        </group>
+                    </group>
+                </sheet>
+                <!-- div class="oe_chatter">
+                  <field name="message_follower_ids" widget="mail_followers"/>
+                  <field name="message_ids" widget="mail_thread"/>
+               </div -->
+            </form>
+        </field>
+    </record>
+
+    <record id="sb_appointment_calender_calendar_view" model="ir.ui.view">
+        <field name="name">sb.appointment_calender.calendar</field>
+        <field name="model">sb.appointment_calender</field>
+        <field name="arch" type="xml">
+            <calendar color="appointment_type_id" date_delay="appointment_duration" date_start="start_date" string="Appointment" quick_add="false"> <!-- to remove quick add set quck_add="False"-->
+                <field name="patient_id"/>
+                <field name="name"/>
+                <!-- <field name="start_date"/> -->
+            </calendar>
+        </field>
+    </record>
+
+    <record id="sb_appointment_calender_tree_view" model="ir.ui.view">
+        <field name="name">sb.appointment_calender.tree</field>
+        <field name="model">sb.appointment_calender</field>
+        <field name="arch" type="xml">
+            <tree string="Appointment Calender">
+                <field name="start_date"/>
+                <field name="patient_id"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="name"/>
+                <field name="appointment_type_id"/>
+                <field name="insurance_note"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sb_appointment_calender_action" model="ir.actions.act_window">
+            <field name="name">Appointment Calender</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sb.appointment_calender</field>
+            <field name="view_type">form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="view_mode">calendar,list,form</field>
+            <field name="view_id" ref="sb_appointment_calender_calendar_view"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add New.
+              </p>
+            </field>
+    </record>
+
+    <menuitem id="xmedical_appointment_calender" name="Appointment Calender" action="sb_appointment_calender_action" parent="xmedical_root_menu" sequence="100"/>
+
+
+
+<!-- Fields Added In Invoice Form  -->
+    <record model="ir.ui.view" id="sb_account_invoice_form_form_view">
+        <field name="name">account.invoice.form</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.invoice_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="name_to_make"/>
+                    <field name="nit"/>
+                </xpath>
+                <xpath expr="//field[@name='date_invoice']" position="after">
+                    <field name="address"/>
+                </xpath>
+                <xpath expr="//field[@name='payment_term_id']" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='address']" position="after">
+                    <field name="sales_channel" invisible='1'/>
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name='options'>{'no_create': True}</attribute>
+                </xpath>
+                 <xpath expr="//field[@name='date_invoice']" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='date_due']" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </xpath>
+                <xpath expr="//page[@name='other_info']" position="attributes">
+                	<attribute name='invisible'>1</attribute>
+                </xpath>
+                
+                
+                
+            </data>
+        </field>
+    </record>
+
+	<record id="sb_medicines_tree_view" model="ir.ui.view">
+			<field name="name">sb.medicines.tree</field>
+			<field name="model">sb.medicines</field>
+			<!--field name="type">tree</field-->
+			<field name="arch" type="xml">
+				<tree string="Medicins">
+				    <field name="name"/>
+				    <field name="indications"/>
+				    <field name="presentation" invisible="1"/>
+				    <field name="concentration" invisible="1"/>
+				</tree>
+			</field>
+	</record>
+
+	<record id="sb_medicines_action" model="ir.actions.act_window">
+			<field name="name">Medicins</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">sb.medicines</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="sb_medicines_tree_view"/>
+			<field name="help" type="html">
+			  <p class="oe_view_nocontent_create">
+				Click to add New.
+			  </p><p>
+				
+			  </p>
+			</field>
+	</record>
+
+	<menuitem id="sb_medicines_menuitem" name="Medicins" parent="xmedical_maintenance" action="sb_medicines_action" sequence="10"/>
+		
+
+
+</data>
+</odoo>

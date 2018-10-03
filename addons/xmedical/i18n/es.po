@@ -1,0 +1,1103 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* sb_medical_clinic
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-11 14:35+0000\n"
+"PO-Revision-Date: 2017-12-11 14:35+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sb_medical_clinic
+#: model:mail.template,body_html:sb_medical_clinic.appointment_email_template
+msgid "\n"
+"        \n"
+"        <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Dear ${object.patient_id.name},<br><br>\n"
+"        Thank you for booking your appointment on ${object.start_date},<br><br>\n"
+"        Please be available on scheduled appointment with doctor.<br><br>\n"
+"        Have a good day.<br><br>\n"
+"        Thanks,<br>\n"
+"        Your Company Name.<br></p>\n"
+"        \n"
+"      "
+msgstr "\n"
+"\n"
+"<p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Dear ${object.patient_id.name},<br><br>\n"
+"Gracias por reservar su cita en $ {object.start_date},<br><br>\n"
+"Esté disponible en la cita programada con el médico.<br><br>\n"
+"Que tengas un buen día.<br><br>\n"
+"Gracias,<br>\n"
+"El nombre de su empresa.<br><br>\n"
+"\n"
+""
+
+#. module: sb_medical_clinic
+#: model:mail.template,body_html:sb_medical_clinic.patient_recipes_email_template
+msgid "\n"
+"        \n"
+"        <p>Dear ${object.patient.name},<br/><br/>\n"
+"        Your Receipt is generated.<br/><br/>\n"
+"        Thanks,<br/>\n"
+"        Your Company Name.<br/></p>\n"
+"        \n"
+"      "
+msgstr "\n"
+"\n"
+"<p>Estimado $ {object.patient.name},<br/><br/>\n"
+"Su recibo se genera.<br/><br/>\n"
+"Gracias,<br/>\n"
+"Nombre de su empresa.<br/></p>\n"
+"\n"
+""
+
+#. module: sb_medical_clinic
+#: model:mail.template,body_html:sb_medical_clinic.patient_dianostics_email_template
+msgid "\n"
+"        \n"
+"        <p>Dear ${object.patient.name},<br/><br/>\n"
+"        Your dignostics...<br/><br/>\n"
+"        Thanks,<br/>\n"
+"        Your Company Name.<br/></p>\n"
+"        \n"
+"      "
+msgstr "\n"
+"\n"
+"<p>Estimado $ {object.patient.name},<br/><br/>\n"
+"Sus dignos...<br/><br/>\n"
+"Gracias,<br/>\n"
+"Nombre de su empresa.<br/></p>\n"
+"\n"
+""
+
+#. module: sb_medical_clinic
+#: model:mail.template,body_html:sb_medical_clinic.appointment_reminder_template
+msgid "\n"
+"        \n"
+"        <p>Dear ${object.patient_id.name},<br/><br/>\n"
+"        You had booked your appointment on ${object.start_date},<br/><br/>\n"
+"        Please be available on scheduled appointment with the doctor.<br/><br/>\n"
+"        Have a good day.<br/><br/>\n"
+"        Thanks,<br/>\n"
+"        Your Company Name.<br/></p>\n"
+"        \n"
+"      "
+msgstr "\n"
+"\n"
+"<p>Estimado ${object.patient_id.name},<br/><br/>\n"
+"Ha reservado su cita el $ {object.start_date},<br/><br/>\n"
+"Esté disponible en la cita programada con el médico.<br/><br/>\n"
+"Que tengas un buen día.<br/><br/>\n"
+"Gracias, <br/>\n"
+"Nombre de su empresa.<br/> </p> \n"
+"\n"
+""
+
+#. module: sb_medical_clinic
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_medical_clinic_report_changes
+msgid "<strong>DESCRIPCION</strong>"
+msgstr "<strong>DESCRIPCION</strong>"
+
+#. module: sb_medical_clinic
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_medical_clinic_report_changes
+msgid "<strong>TOTAL</strong>"
+msgstr "<strong>TOTAL</strong>"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_account_invoice_address
+msgid "Address"
+msgstr "Dirección"
+
+#. module: sb_medical_clinic
+#: model:ir.module.category,name:sb_medical_clinic.medical_clinic_group
+msgid "Admin"
+msgstr "Administración"
+
+#. module: sb_medical_clinic
+#: model:ir.module.category,description:sb_medical_clinic.medical_clinic_group
+msgid "Admin access level for this module"
+msgstr "Nivel de acceso de administrador para este módulo"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_age
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_age
+msgid "Age"
+msgstr "Años"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_calender_appointment_all_day
+msgid "All Day"
+msgstr "Todo el dia"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_allergies
+msgid "Allergies"
+msgstr "Alergias"
+
+#. module: sb_medical_clinic
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_appointment_calender_calendar_view
+msgid "Appointment"
+msgstr "Cita"
+
+#. module: sb_medical_clinic
+#: model:ir.actions.act_window,name:sb_medical_clinic.sb_appointment_calender_action
+#: model:ir.ui.menu,name:sb_medical_clinic.sb_medical_clinic_appointment_calender
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_appointment_calender_form_view
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_appointment_calender_tree_view
+msgid "Appointment Calender"
+msgstr "Calendario de Citas"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_calender_name
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_appointment_calender_form_view
+msgid "Appointment Summery..."
+msgstr "Resumen de citas ..."
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_calender_appointment_type_id
+msgid "Appointment Type"
+msgstr "Tipo De Cita"
+
+#. module: sb_medical_clinic
+#: model:ir.actions.act_window,name:sb_medical_clinic.sb_appointment_types_action
+#: model:ir.ui.menu,name:sb_medical_clinic.sb_appointment_types_menuitem
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_appointment_types_form_view
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_appointment_types_tree_view
+msgid "Appointment Types"
+msgstr "Tipos de cita"
+
+#. module: sb_medical_clinic
+#: model:ir.actions.act_window,name:sb_medical_clinic.action_open_patient_appointments
+#: model:ir.ui.view,arch_db:sb_medical_clinic.patient_medical_appointment_count
+msgid "Appointments"
+msgstr "Equipo"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_arthritis
+msgid "Arthritis"
+msgstr "Artritis"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_asthma
+msgid "Asthma"
+msgstr "Asma"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_bad_coagulation
+msgid "Bad coagulation"
+msgstr "Mala coagulación"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_bebe
+msgid "Bebe"
+msgstr "Bebe"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_billing_address
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_billing_address
+msgid "Billing Address"
+msgstr "Dirección de Envio"
+
+#. module: sb_medical_clinic
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_patient_directory_form_view
+msgid "Billing Data"
+msgstr "Datos de facturación"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_birth_date
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_birth_date
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_birth_date
+msgid "BirthDate"
+msgstr "Fecha De Nacimiento"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_bleed_easily
+msgid "Bleed easily"
+msgstr "Sangrar fácilmente"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_bronchitis
+msgid "Bronchitis"
+msgstr "Bronquitis"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_cancer
+msgid "Cancer"
+msgstr "Cáncer"
+
+#. module: sb_medical_clinic
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_medical_history_form_view
+msgid "Cardiovascular"
+msgstr "Cardiovascular"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_certificate
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_certificate
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_certificate
+msgid "Certificate"
+msgstr "Certificado"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_chest_pain
+msgid "Chest pain"
+msgstr "Dolor de pecho"
+
+#. module: sb_medical_clinic
+#: model:ir.actions.act_window,help:sb_medical_clinic.sb_appointment_calender_action
+#: model:ir.actions.act_window,help:sb_medical_clinic.sb_appointment_types_action
+#: model:ir.actions.act_window,help:sb_medical_clinic.sb_common_diagnostics_action
+#: model:ir.actions.act_window,help:sb_medical_clinic.sb_doctors_action
+#: model:ir.actions.act_window,help:sb_medical_clinic.sb_insura_action
+#: model:ir.actions.act_window,help:sb_medical_clinic.sb_insurance_companies_list_action
+#: model:ir.actions.act_window,help:sb_medical_clinic.sb_medical_history_action
+#: model:ir.actions.act_window,help:sb_medical_clinic.sb_medications_for_recipes_action
+#: model:ir.actions.act_window,help:sb_medical_clinic.sb_patient_diagnostics_action
+#: model:ir.actions.act_window,help:sb_medical_clinic.sb_patient_directory_action
+#: model:ir.actions.act_window,help:sb_medical_clinic.sb_patient_recipes_action
+msgid "Click to add New."
+msgstr "Haga clic para agregar Nuevo."
+
+#. module: sb_medical_clinic
+#: model:ir.actions.act_window,name:sb_medical_clinic.sb_common_diagnostics_action
+#: model:ir.ui.menu,name:sb_medical_clinic.sb_common_diagnostics_menuitem
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_common_diagnostics_form_view
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_common_diagnostics_tree_view
+msgid "Common Diagnostics"
+msgstr "Diagnóstico común"
+
+#. module: sb_medical_clinic
+#: selection:res.partner,state_medical_history:0
+msgid "Completed"
+msgstr "Terminado"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medications_for_recipes_concentration
+#: model:ir.ui.view,arch_db:sb_medical_clinic.report_patient_recipes
+msgid "Concentration"
+msgstr "Concentración"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_calender_create_uid
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_types_create_uid
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_common_diagnostics_create_uid
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_insurance_companies_list_create_uid
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_create_uid
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medications_for_recipes_create_uid
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medicines_create_uid
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_diagnostics_create_uid
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_recipes_create_uid
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_sales_channel_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_calender_create_date
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_types_create_date
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_common_diagnostics_create_date
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_insurance_companies_list_create_date
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_create_date
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medications_for_recipes_create_date
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medicines_create_date
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_diagnostics_create_date
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_recipes_create_date
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_sales_channel_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: sb_medical_clinic
+#: model:ir.actions.act_window,name:sb_medical_clinic.action_open_patient_diagnostics
+msgid "Daignosis"
+msgstr "Diagnóstico"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_diabetes
+msgid "Diabetes"
+msgstr "Diabetes"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_common_diagnostics_diagnosis
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_diagnostics_diagnosis
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_recipes_diagnosis
+msgid "Diagnosis"
+msgstr "Diagnóstico"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_diagnostics_diagnostics_date
+msgid "Diagnostics Date"
+msgstr "Fecha de diagnóstico"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_did_you_have_any_adverse_reaction_to_anesthesia
+msgid "Did you have any adverse reaction to anesthesia?"
+msgstr "¿Tuvo alguna reacción adversa a la anestesia?"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_difficulty_breathing
+msgid "Difficulty breathing"
+msgstr "Respiración dificultosa"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_calender_display_name
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_types_display_name
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_common_diagnostics_display_name
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_insurance_companies_list_display_name
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_display_name
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medications_for_recipes_display_name
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medicines_display_name
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_diagnostics_display_name
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_recipes_display_name
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_sales_channel_display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_do_you_currently_take_any_medication
+msgid "Do you currently take any medication?"
+msgstr "¿Actualmente toma algún medicamento?"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_do_you_have_allergies_to_any_medication_or_food
+msgid "Do you have allergies to any medication or food?"
+msgstr "¿Tiene alergia a algún medicamento o comida?"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_do_you_have_medical_insurance
+msgid "Do you have medical insurance?"
+msgstr "¿Tienes seguro medico?"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_diagnostics_doctor
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_recipes_doctor
+#: model:res.groups,name:sb_medical_clinic.medical_clinic_doctor
+#: selection:res.partner,partner_type:0
+msgid "Doctor"
+msgstr "Doctor"
+
+#. module: sb_medical_clinic
+#: model:ir.actions.act_window,name:sb_medical_clinic.sb_doctors_action
+#: model:ir.ui.menu,name:sb_medical_clinic.sb_doctors_menuitem
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_doctors_tree_view
+msgid "Doctors"
+msgstr "Doctores"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_drugs
+msgid "Drugs"
+msgstr "Drogas"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_calender_appointment_duration
+msgid "Duration"
+msgstr "Duración"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_email_id
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_email_id
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_calender_email
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_email
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_recipes_email
+msgid "Email"
+msgstr "Email"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_emphysema
+msgid "Emphysema"
+msgstr "Enfisema"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_calender_end_date
+msgid "End Date"
+msgstr "Fecha final"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_fainting
+msgid "Fainting"
+msgstr "Desmayo"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_familiar_with_skin_cancer
+msgid "Familiar with skin cancer"
+msgstr "Familiarizado con el cáncer de piel"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_first_name
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_first_name
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_first_name
+msgid "First Name"
+msgstr "Nombre de pila"
+
+#. module: sb_medical_clinic
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_medical_history_form_view
+msgid "General"
+msgstr "General"
+
+#. module: sb_medical_clinic
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_medical_history_form_view
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_patient_directory_form_view
+msgid "General Data"
+msgstr "Informacion General"
+
+#. module: sb_medical_clinic
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_medical_history_form_view
+msgid "Habits"
+msgstr "Hábitos"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_have_you_injected_local_anesthesia
+msgid "Have you injected local anesthesia?"
+msgstr "¿Te han inyectado anestesia local?"
+
+#. module: sb_medical_clinic
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_medical_history_form_view
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_patient_directory_form_view
+msgid "Health Insurance"
+msgstr "Seguro de salud"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_heart_attacks
+msgid "Heart attacks"
+msgstr "Ataques al corazón"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_hepatitis
+msgid "Hepatitis"
+msgstr "Hepatitis"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_high_pressure
+msgid "High pressure"
+msgstr "Alta presión"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_calender_id
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_types_id
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_common_diagnostics_id
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_insurance_companies_list_id
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_id
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medications_for_recipes_id
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medicines_id
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_diagnostics_id
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_recipes_id
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_sales_channel_id
+msgid "ID"
+msgstr "CARNÉ DE IDENTIDAD"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medications_for_recipes_indications
+#: model:ir.ui.view,arch_db:sb_medical_clinic.report_patient_recipes
+msgid "Indications"
+msgstr "Indicaciones"
+
+#. module: sb_medical_clinic
+#: selection:res.partner,partner_type:0
+msgid "Insurance"
+msgstr "Seguro"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_insurance_carrier
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_insurance_carrier
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_calender_insurance_note
+msgid "Insurance Carrier"
+msgstr "Aseguradora"
+
+#. module: sb_medical_clinic
+#: model:ir.actions.act_window,name:sb_medical_clinic.sb_insura_action
+#: model:ir.ui.menu,name:sb_medical_clinic.sb_insurance_companies_list_menuitem
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_insurance_companies_list_form_view
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_insurance_companies_list_tree_view
+msgid "Insurance Companies List"
+msgstr "Lista de compañías de seguros"
+
+#. module: sb_medical_clinic
+#: model:ir.actions.act_window,name:sb_medical_clinic.sb_insurance_companies_list_action
+msgid "Insurance Company List"
+msgstr "Lista de compañías de seguros"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_insurance_name
+msgid "Insurance Name"
+msgstr "Nombre del seguro"
+
+#. module: sb_medical_clinic
+#: model:ir.model,name:sb_medical_clinic.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_keloid_healing
+msgid "Keloid healing"
+msgstr "Cicatriz queloide"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_kidneys
+msgid "Kidneys"
+msgstr "Riñones"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_calender___last_update
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_types___last_update
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_common_diagnostics___last_update
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_insurance_companies_list___last_update
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history___last_update
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medications_for_recipes___last_update
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medicines___last_update
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_diagnostics___last_update
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_recipes___last_update
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_sales_channel___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_calender_write_uid
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_types_write_uid
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_common_diagnostics_write_uid
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_insurance_companies_list_write_uid
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_write_uid
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medications_for_recipes_write_uid
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medicines_write_uid
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_diagnostics_write_uid
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_recipes_write_uid
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_sales_channel_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_calender_write_date
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_types_write_date
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_common_diagnostics_write_date
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_insurance_companies_list_write_date
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_write_date
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medications_for_recipes_write_date
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medicines_write_date
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_diagnostics_write_date
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_recipes_write_date
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_sales_channel_write_date
+msgid "Last Updated on"
+msgstr "Ultima actualizacion en"
+
+#. module: sb_medical_clinic
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_medical_history_form_view
+msgid "Lungs"
+msgstr "Livianos"
+
+#. module: sb_medical_clinic
+#: model:ir.ui.menu,name:sb_medical_clinic.sb_medical_clinic_maintenance
+msgid "Maintenance"
+msgstr "Mantenimiento"
+
+#. module: sb_medical_clinic
+#: model:ir.ui.menu,name:sb_medical_clinic.sb_medical_clinic_root_menu
+msgid "Medical Clinic"
+msgstr "Clinica Medica"
+
+#. module: sb_medical_clinic
+#: model:ir.actions.act_window,name:sb_medical_clinic.action_open_patient_medical_history
+#: model:ir.actions.act_window,name:sb_medical_clinic.sb_medical_history_action
+#: model:ir.ui.menu,name:sb_medical_clinic.sb_medical_history_menuitem
+#: model:ir.ui.view,arch_db:sb_medical_clinic.patient_medical_history_count
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_medical_history_form_view
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_medical_history_tree_view
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_patient_directory_form_view
+msgid "Medical History"
+msgstr "Historial médico"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_recipes_medication_ids
+msgid "Medications"
+msgstr "Medicamentos"
+
+#. module: sb_medical_clinic
+#: model:ir.actions.act_window,name:sb_medical_clinic.sb_medications_for_recipes_action
+#: model:ir.ui.menu,name:sb_medical_clinic.sb_medications_for_recipes_menuitem
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_medications_for_recipes_form_view
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_medications_for_recipes_tree_view
+msgid "Medications For Recipes"
+msgstr "Medicamentos para recetas"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medications_for_recipes_medicine
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medicines_name
+#: model:ir.ui.view,arch_db:sb_medical_clinic.report_patient_recipes
+msgid "Medicine"
+msgstr "Medicina"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_medicines
+msgid "Medicines"
+msgstr "Medicinas"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_account_invoice_nit
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_nit
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_nit
+msgid "NIT"
+msgstr "LIENDRE"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_sb_name
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_sb_name
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_types_name
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_insurance_companies_list_name
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_sales_channel_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_name_to_invoice
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_name_to_invoice
+msgid "Name To Invoice"
+msgstr "Nombre a la factura"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_account_invoice_name_to_make
+msgid "Name To Make"
+msgstr "Nombre para hacer"
+
+#. module: sb_medical_clinic
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_patient_directory_form_view
+msgid "New Page"
+msgstr "Nueva pagina"
+
+#. module: sb_medical_clinic
+#: selection:sb.medical_history,arthritis:0
+#: selection:sb.medical_history,asthma:0
+#: selection:sb.medical_history,bad_coagulation:0
+#: selection:sb.medical_history,bebe:0
+#: selection:sb.medical_history,bleed_easily:0
+#: selection:sb.medical_history,bronchitis:0
+#: selection:sb.medical_history,cancer:0
+#: selection:sb.medical_history,chest_pain:0
+#: selection:sb.medical_history,diabetes:0
+#: selection:sb.medical_history,did_you_have_any_adverse_reaction_to_anesthesia:0
+#: selection:sb.medical_history,difficulty_breathing:0
+#: selection:sb.medical_history,do_you_currently_take_any_medication:0
+#: selection:sb.medical_history,do_you_have_allergies_to_any_medication_or_food:0
+#: selection:sb.medical_history,do_you_have_medical_insurance:0
+#: selection:sb.medical_history,drugs:0
+#: selection:sb.medical_history,emphysema:0
+#: selection:sb.medical_history,fainting:0
+#: selection:sb.medical_history,familiar_with_skin_cancer:0
+#: selection:sb.medical_history,have_you_injected_local_anesthesia:0
+#: selection:sb.medical_history,heart_attacks:0
+#: selection:sb.medical_history,hepatitis:0
+#: selection:sb.medical_history,high_pressure:0
+#: selection:sb.medical_history,keloid_healing:0
+#: selection:sb.medical_history,kidneys:0
+#: selection:sb.medical_history,pacemaker:0
+#: selection:sb.medical_history,seizures_epilepsy:0
+#: selection:sb.medical_history,skin_cancer:0
+#: selection:sb.medical_history,smoke:0
+#: selection:sb.medical_history,specific_disease:0
+#: selection:sb.medical_history,tachycardia:0
+#: selection:sb.medical_history,thyroid:0
+#: selection:sb.medical_history,urinary_infections:0
+msgid "No"
+msgstr "No"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_no_of_appointments
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_no_of_appointments
+msgid "No of appointments"
+msgstr "No de citas"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_no_of_diagnostics
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_no_of_diagnostics
+msgid "No of diagnostics"
+msgstr "No de diagnósticos"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_no_of_medical_history
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_no_of_medical_history
+msgid "No of medical history"
+msgstr "No de historial médico"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_no_of_recipes
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_no_of_recipes
+msgid "No of recipes"
+msgstr "No de recetas"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_no_current_file
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_no_current_file
+msgid "No. Current File"
+msgstr "No. Archivo actual"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_diagnostics_observations
+msgid "Observations"
+msgstr "Observaciones"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_operations
+msgid "Operations"
+msgstr "Operaciones"
+
+#. module: sb_medical_clinic
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_medical_history_form_view
+msgid "Other Sytemic"
+msgstr "Otro Sytemic"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_pacemaker
+msgid "Pacemaker"
+msgstr "Marcapasos"
+
+#. module: sb_medical_clinic
+#: model:ir.model,name:sb_medical_clinic.model_res_partner
+msgid "Partner"
+msgstr "Compañero"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_partner_type
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_partner_type
+msgid "Partner Type"
+msgstr "Tipo de socio"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_calender_patient_id
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_patient
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_diagnostics_patient
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_recipes_patient
+#: selection:res.partner,partner_type:0
+msgid "Patient"
+msgstr "Paciente"
+
+#. module: sb_medical_clinic
+#: model:ir.actions.act_window,name:sb_medical_clinic.sb_patient_diagnostics_action
+#: model:ir.ui.menu,name:sb_medical_clinic.sb_patient_diagnostics_menuitem
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_patient_diagnostics_form_view
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_patient_diagnostics_tree_view
+msgid "Patient Diagnoses"
+msgstr "Diagnósticos del paciente"
+
+#. module: sb_medical_clinic
+#: model:ir.ui.view,arch_db:sb_medical_clinic.patient_medical_diagnostics_count
+msgid "Patient Diagnostics"
+msgstr "Diagnóstico del paciente"
+
+#. module: sb_medical_clinic
+#: model:ir.actions.act_window,name:sb_medical_clinic.sb_patient_directory_action
+#: model:ir.ui.menu,name:sb_medical_clinic.sb_patient_directory_menuitem
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_patient_directory_tree_view
+msgid "Patient Directory"
+msgstr "Directorio de pacientes"
+
+#. module: sb_medical_clinic
+#: model:ir.actions.act_window,name:sb_medical_clinic.action_open_patient_recipes
+#: model:ir.actions.act_window,name:sb_medical_clinic.sb_patient_recipes_action
+#: model:ir.actions.report.xml,name:sb_medical_clinic.sb_medical_clinic_patient_recipes_print_data
+#: model:ir.ui.menu,name:sb_medical_clinic.sb_patient_recipes_menuitem
+#: model:ir.ui.view,arch_db:sb_medical_clinic.patient_recipes_count
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_patient_recipes_form_view
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_patient_recipes_tree_view
+msgid "Patient Recipes"
+msgstr "Recetas para pacientes"
+
+#. module: sb_medical_clinic
+#: model:ir.ui.menu,name:sb_medical_clinic.sb_medical_clinic_patients
+msgid "Patients"
+msgstr "Pacientes"
+
+#. module: sb_medical_clinic
+#: selection:res.partner,state_medical_history:0
+msgid "Pending"
+msgstr "Pendiente"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_phone_no
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_phone_no
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_calender_phone
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_phone
+msgid "Phone"
+msgstr "Teléfono"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_photography
+msgid "Photography"
+msgstr "Fotografía"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_policy
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_policy
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_policy
+msgid "Policy"
+msgstr "Política"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medications_for_recipes_presentation
+#: model:ir.ui.view,arch_db:sb_medical_clinic.report_patient_recipes
+msgid "Presentation"
+msgstr "Presentación"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medications_for_recipes_quantity
+#: model:ir.ui.view,arch_db:sb_medical_clinic.report_patient_recipes
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_reason_1st_consultation
+msgid "Reason 1st Consultation"
+msgstr "Primera consulta de la razón"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medications_for_recipes_receipt_id
+msgid "Receipt"
+msgstr "Recibo"
+
+#. module: sb_medical_clinic
+#: model:res.groups,name:sb_medical_clinic.medical_clinic_receptionist01
+msgid "Receptionist01"
+msgstr "Receptionist01"
+
+#. module: sb_medical_clinic
+#: model:res.groups,name:sb_medical_clinic.medical_clinic_receptionist02
+msgid "Receptionist02"
+msgstr "Receptionist02"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_recipes_recipe_date
+msgid "Recipe Date"
+msgstr "Fecha de receta"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_patient_diagnostics_reference_image
+msgid "Reference Image"
+msgstr "Imagen de referencia"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_referred_by
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_referred_by
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_referred_by
+msgid "Referred By"
+msgstr "Referido por"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_relationship
+msgid "Relationship"
+msgstr "Relación"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_account_invoice_sales_channel
+msgid "Sales Channel"
+msgstr "Canal de ventas"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_second_name
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_second_name
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_second_name
+msgid "Second Name"
+msgstr "Segundo nombre"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_second_surname
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_second_surname
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_second_surname
+msgid "Second Surname"
+msgstr "Segundo apellido"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_secondary_phone
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_secondary_phone
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_secondary_phone
+msgid "Secondary Phone"
+msgstr "Teléfono secundario"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_seizures_epilepsy
+msgid "Seizures, Epilepsy"
+msgstr "Convulsiones, epilepsia"
+
+#. module: sb_medical_clinic
+#: model:ir.ui.view,arch_db:sb_medical_clinic.sb_medical_history_form_view
+msgid "Skin"
+msgstr "Piel"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_skin_cancer
+msgid "Skin cancer"
+msgstr "Cáncer de piel"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_smoke
+msgid "Smoke"
+msgstr "Fumar"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_some_other_condition
+msgid "Some Other Condition"
+msgstr "Alguna otra condición"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_doctor_speciality
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_doctor_speciality
+msgid "Speciality Fields"
+msgstr "Campos de especialidad"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_specific_disease
+msgid "Specific disease"
+msgstr "Enfermedad específica"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_specify
+msgid "Specify"
+msgstr "Especificar"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_appointment_calender_start_date
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_state_medical_history
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_state_medical_history
+msgid "State Medical History"
+msgstr "Historia médica estatal"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_partner_surname
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_res_users_surname
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_surname
+msgid "Surname"
+msgstr "Apellido"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_tachycardia
+msgid "Tachycardia"
+msgstr "Taquicardia"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_thyroid
+msgid "Thyroid"
+msgstr "Tiroides"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_todays_date
+msgid "Today's Date"
+msgstr "El día de hoy"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_urinary_infections
+msgid "Urinary infections"
+msgstr "Infecciones urinarias"
+
+#. module: sb_medical_clinic
+#: model:ir.model.fields,field_description:sb_medical_clinic.field_sb_medical_history_which
+msgid "Which"
+msgstr "Cual"
+
+#. module: sb_medical_clinic
+#: selection:sb.medical_history,arthritis:0
+#: selection:sb.medical_history,asthma:0
+#: selection:sb.medical_history,bad_coagulation:0
+#: selection:sb.medical_history,bebe:0
+#: selection:sb.medical_history,bleed_easily:0
+#: selection:sb.medical_history,bronchitis:0
+#: selection:sb.medical_history,cancer:0
+#: selection:sb.medical_history,chest_pain:0
+#: selection:sb.medical_history,diabetes:0
+#: selection:sb.medical_history,did_you_have_any_adverse_reaction_to_anesthesia:0
+#: selection:sb.medical_history,difficulty_breathing:0
+#: selection:sb.medical_history,do_you_currently_take_any_medication:0
+#: selection:sb.medical_history,do_you_have_allergies_to_any_medication_or_food:0
+#: selection:sb.medical_history,do_you_have_medical_insurance:0
+#: selection:sb.medical_history,drugs:0
+#: selection:sb.medical_history,emphysema:0
+#: selection:sb.medical_history,fainting:0
+#: selection:sb.medical_history,familiar_with_skin_cancer:0
+#: selection:sb.medical_history,have_you_injected_local_anesthesia:0
+#: selection:sb.medical_history,heart_attacks:0
+#: selection:sb.medical_history,hepatitis:0
+#: selection:sb.medical_history,high_pressure:0
+#: selection:sb.medical_history,keloid_healing:0
+#: selection:sb.medical_history,kidneys:0
+#: selection:sb.medical_history,pacemaker:0
+#: selection:sb.medical_history,seizures_epilepsy:0
+#: selection:sb.medical_history,skin_cancer:0
+#: selection:sb.medical_history,smoke:0
+#: selection:sb.medical_history,specific_disease:0
+#: selection:sb.medical_history,tachycardia:0
+#: selection:sb.medical_history,thyroid:0
+#: selection:sb.medical_history,urinary_infections:0
+msgid "Yes"
+msgstr "Sí"
+
+#. module: sb_medical_clinic
+#: model:mail.template,subject:sb_medical_clinic.appointment_email_template
+msgid "Your Appointment Booked | ${object.name}"
+msgstr "Su cita reservada | ${object.name}"
+
+#. module: sb_medical_clinic
+#: model:mail.template,subject:sb_medical_clinic.appointment_reminder_template
+msgid "Your Appointment Reminder | ${object.name}"
+msgstr "Su recordatorio de cita | ${object.name}"
+
+#. module: sb_medical_clinic
+#: model:mail.template,subject:sb_medical_clinic.patient_recipes_email_template
+msgid "Your Receipt is generated | ${object.patient.name}"
+msgstr "Su recibo es generado | ${object.patient.name}"
+
+#. module: sb_medical_clinic
+#: model:mail.template,subject:sb_medical_clinic.patient_dianostics_email_template
+msgid "Your dignostics... | ${object.patient.name}"
+msgstr "Su diagnóstico ... | ${object.patient.name}"
+
+#. module: sb_medical_clinic
+#: model:ir.model,name:sb_medical_clinic.model_sb_appointment_calender
+msgid "sb.appointment_calender"
+msgstr "sb.appointment_calender"
+
+#. module: sb_medical_clinic
+#: model:ir.model,name:sb_medical_clinic.model_sb_appointment_types
+msgid "sb.appointment_types"
+msgstr "sb.appointment_types"
+
+#. module: sb_medical_clinic
+#: model:ir.model,name:sb_medical_clinic.model_sb_common_diagnostics
+msgid "sb.common_diagnostics"
+msgstr "sb.common_diagnostics"
+
+#. module: sb_medical_clinic
+#: model:ir.model,name:sb_medical_clinic.model_sb_insurance_companies_list
+msgid "sb.insurance_companies_list"
+msgstr "sb.insurance_companies_list"
+
+#. module: sb_medical_clinic
+#: model:ir.model,name:sb_medical_clinic.model_sb_medical_history
+msgid "sb.medical_history"
+msgstr "sb.medical_history"
+
+#. module: sb_medical_clinic
+#: model:ir.model,name:sb_medical_clinic.model_sb_medications_for_recipes
+msgid "sb.medications_for_recipes"
+msgstr "sb.medications_for_recipes"
+
+#. module: sb_medical_clinic
+#: model:ir.model,name:sb_medical_clinic.model_sb_medicines
+msgid "sb.medicines"
+msgstr "sb.medicines"
+
+#. module: sb_medical_clinic
+#: model:ir.model,name:sb_medical_clinic.model_sb_patient_diagnostics
+msgid "sb.patient_diagnostics"
+msgstr "sb.patient_diagnostics"
+
+#. module: sb_medical_clinic
+#: model:ir.model,name:sb_medical_clinic.model_sb_patient_recipes
+msgid "sb.patient_recipes"
+msgstr "sb.patient_recipes"
+
+#. module: sb_medical_clinic
+#: model:ir.model,name:sb_medical_clinic.model_sb_sales_channel
+msgid "sb.sales_channel"
+msgstr "sb.sales_channel"
+

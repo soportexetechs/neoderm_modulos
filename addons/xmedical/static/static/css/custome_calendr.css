@@ -1,0 +1,10 @@
+/*.fc-agenda-slots th {
+	height: 50px;
+	border-width: 1px 1px 0;
+	}
+*/
+
+.fc-time-grid .fc-slats td {
+	height: 5.0em !important;
+	border-bottom: 0; /* each cell is responsible for its top border */
+}

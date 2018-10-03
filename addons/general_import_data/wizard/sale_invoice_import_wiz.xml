@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="upload_data_sale_invoice" model="ir.ui.view">
+        <field name="name">Upload Sale Invoice</field>
+        <field name="model">sale.invoice.data.import</field>
+        <field name="arch" type="xml">
+            <form string="Sale Invoice">
+                <group colspan="2">
+                    <field name="xls_file" string="Select File"/>
+                    <field name="journal_id"/>
+                </group>
+                <footer>
+                    <button name="import_data_invoice" string="Upload invoice" type="object" default_focus="1" class="oe_highlight"/>
+                    or 
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+	<record id="action_import_sale_invoice" model="ir.actions.act_window">
+        <field name="name">Upload Sale Invoice</field>
+        <field name="res_model">sale.invoice.data.import</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="upload_data_sale_invoice"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem action="action_import_sale_invoice" id="import_partner_data_id_inv" name="Import Sale Invoice" parent="menu_finance_receivables_import_data" sequence="3"/>
+</odoo>

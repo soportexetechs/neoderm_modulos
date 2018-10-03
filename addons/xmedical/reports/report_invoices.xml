@@ -1,0 +1,85 @@
+<!-- To change the style of the invoice -->
+<odoo>
+    <data>
+        <!-- inheriting account.report_invoice_document -->
+        <template id="sb_medical_clinic_report_changes" inherit_id="account.report_invoice_document">
+            <xpath expr="//t" position="replace">
+                <t t-name="account.report_invoice_with_payments">
+                <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                <t t-call="web.internal_layout">
+                    <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})"/>
+                    <div class="page">
+                        <br/>
+                        <br/>
+                        <table style="width:100%;" border="1">
+                            <tr rowspan="2">
+                                <td colspan="2">
+                                    <p t-field="o.nit"/>
+                                </td>
+                                <td align="right">
+                                    <p t-field="o.date_invoice" t-options="{&quot;format&quot;: &quot;dd&quot;}"/>
+                                </td>
+                                <td align="right">
+                                    <p t-field="o.date_invoice" t-options="{&quot;format&quot;: &quot;MM&quot;}"/>
+                                </td>
+                                <td align="right">
+                                    <p t-field="o.date_invoice" t-options="{&quot;format&quot;: &quot;yyyy&quot;}"/>
+                                </td>
+                            </tr>
+                            <tr rowspan="2">
+                                <td colspan="5">
+                                    <p t-field="o.name_to_make"/>
+                                </td>
+                            </tr>
+                            <tr rowspan="2">
+                                <td colspan="5">
+                                    <p t-field="o.address"/>
+                                </td>
+                            </tr>
+                            <table style="width:100%;">
+                                <tr>
+                                    <th colspan="4" style="text-align:center">
+                                        <strong>DESCRIPCION</strong>
+                                    </th>
+                                    <th style="text-align:right">
+                                        <strong>TOTAL</strong>
+                                    </th>
+                                </tr>
+                                <tr t-foreach="o.invoice_line_ids" t-as="l">
+                                    <td colspan="4">
+                                        <span t-field="l.quantity"/>, 
+                                        <span t-field="l.name"/>, 
+                                        <span t-field="l.product_id"/>
+                                    </td>
+                                    <td class="text-right" id="subtotal">
+                                        <span t-field="l.price_subtotal" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </table>
+                        <br/>
+                    </div>
+                    <table style="width:100%;position: absolute;    top: 542px;">
+                        <tr>
+                            <td colspan="4" align="center">
+                                <!-- strong>Total</strong -->
+                            </td>
+                            <td class="text-right">
+                                <span t-field="o.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <style>
+                        td{padding: 3px !important; }
+                        th{background: darkgrey !important; display:none;}
+                    </style>
+                </t>
+                </t>
+                </t>
+                </t>
+            </xpath>
+        </template>
+    </data>
+</odoo>

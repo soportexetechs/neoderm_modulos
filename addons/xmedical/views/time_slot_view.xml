@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sb_time_slot_line_form_view" model="ir.ui.view">
+        <field name="name">time.slot.line.form</field>
+        <field name="model">time.slot.line</field>
+        <field name="arch" type="xml">
+            <form string="Time Slot">
+                <field name="start_time"/>
+                <field name="end_time"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="sb_time_slot_form_view" model="ir.ui.view">
+        <field name="name">time.slot.management.form</field>
+        <field name="model">time.slot.management</field>
+        <field name="arch" type="xml">
+            <form string="Time Slot">
+                <group>
+                    <group>
+                        <field name="name" domain="[('partner_type','=','doctor')]" options="{'no_quick_create': True, 'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+                        <!-- <field name="duration" widget="float_time"/> -->
+                        <field name="day" required="1"/>
+                    </group>
+                    <group>
+                        <field name="start_time" required="1"/>
+                        <field name="end_time" required="1"/>
+                        <button name="set_time_slot" string="⇒ Set Time Slot" type="object" class="oe_link oe_right"/>
+                    </group>
+                </group>
+
+                <notebook>
+                    <page string="Monday">
+                        <field name="monday_slot_ids" mode="tree">
+                            <tree editable="top">
+                                <field name="start_time"/>
+                                <field name="end_time"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Tuesday">
+                        <field name="tuesday_slot_ids" mode="tree">
+                            <tree editable="top">
+                                <field name="start_time"/>
+                                <field name="end_time"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Wednesday">
+                        <field name="wednesday_slot_ids" mode="tree">
+                            <tree editable="top">
+                                <field name="start_time"/>
+                                <field name="end_time"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Thursday">
+                        <field name="thursday_slot_ids" mode="tree">
+                            <tree editable="top">
+                                <field name="start_time"/>
+                                <field name="end_time"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Friday">
+                        <field name="friday_slot_ids" mode="tree">
+                            <tree editable="top">
+                                <field name="start_time"/>
+                                <field name="end_time"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Saturday">
+                        <field name="saturday_slot_ids" mode="tree">
+                            <tree editable="top">
+                                <field name="start_time"/>
+                                <field name="end_time"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Sunday">
+                        <field name="sunday_slot_ids" mode="tree">
+                            <tree editable="top">
+                                <field name="start_time"/>
+                                <field name="end_time"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+	<record id="sb_time_slot_tree_view" model="ir.ui.view">
+        <field name="name">time.slot.management.tree</field>
+        <field name="model">time.slot.management</field>
+        <field name="arch" type="xml">
+            <tree string="Time Slot">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+	<record id="sb_time_slot_action" model="ir.actions.act_window">
+            <field name="name">Time Slot</field>
+            <field name="res_model">time.slot.management</field>
+            <field name="view_type">form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sb_time_slot_tree_view"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add New.
+              </p>
+            </field>
+    </record>
+	<menuitem id="sb_time_slot" name="Time Slot" parent="xmedical_maintenance" action="sb_time_slot_action" sequence="50"/>
+</odoo>

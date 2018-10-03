@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="1">
+    
+    <!-- On new Appointment send email -->
+<!--     <record id="appointment_email_template" model="mail.template">
+      <field name="name">Appointment E-mail Template</field>
+      <field name="email_from">${object.company_id and object.company_id.email or ''}</field>
+      <field name="subject">Your Appointment Booked | ${object.name}</field>
+      <field name="email_to">${object.email|safe}</field>
+      <field name="lang">${object.lang}</field>
+      <field name="model_id" ref="sb_medical_clinic.model_sb_appointment_calender"/>
+      <field name="auto_delete" eval="False"/>
+      <field name="body_html">
+        <![CDATA[
+        <p>Dear ${object.patient_id.name},<br/><br/>
+        Thank you for booking your appointment on ${object.start_date},<br/><br/>
+        Please be available on scheduled appointment with doctor.<br/><br/>
+        Have a good day.<br/><br/>
+        Thanks,<br/>
+        Your Company Name.<br/></p>
+        ]]>
+      </field>
+    </record>
+ -->
+    <!-- On new patient recipes send email -->
+ <!--    <record id="patient_recipes_email_template" model="mail.template">
+      <field name="name">Patient Receipt E-mail Template</field>
+      <field name="email_from">${object.company_id and object.company_id.email or ''}</field>
+      <field name="subject">Your Receipt is generated | ${object.patient.name}</field>
+      <field name="email_to">${object.email|safe}</field>
+      <field name="lang">${object.lang}</field>
+      <field name="model_id" ref="sb_medical_clinic.model_sb_patient_recipes"/>
+      <field name="auto_delete" eval="False"/>
+      <field name="body_html">
+        <![CDATA[
+        <p>Dear ${object.patient.name},<br/><br/>
+        Your Receipt is generated.<br/><br/>
+        Thanks,<br/>
+        Your Company Name.<br/></p>
+        ]]>
+      </field>
+    </record> -->
+
+    <!-- patient dignostics template -->
+<!--     <record id="patient_dianostics_email_template" model="mail.template">
+      <field name="name">Patient Diagnostics E-mail Template</field>
+      <field name="email_from">${object.company_id and object.company_id.email or ''}</field>
+      <field name="subject">Your dignostics... | ${object.patient.name}</field>
+      <field name="email_to">${object.email|safe}</field>
+      <field name="lang">${object.lang}</field>
+      <field name="model_id" ref="sb_medical_clinic.model_sb_patient_diagnostics"/>
+      <field name="auto_delete" eval="False"/>
+      <field name="body_html">
+        <![CDATA[
+        <p>Dear ${object.patient.name},<br/><br/>
+        Your dignostics...<br/><br/>
+        Thanks,<br/>
+        Your Company Name.<br/></p>
+        ]]>
+      </field>
+    </record>
+ -->
+    <!-- Scheduler Email Reminder -->
+  <!--   <record id="appointment_reminder_template" model="mail.template">
+      <field name="name">Appointment Reminder Template</field>
+      <field name="email_from">${object.company_id and object.company_id.email or ''}</field>
+      <field name="subject">Your Appointment Reminder | ${object.name}</field>
+      <field name="email_to">${object.email|safe}</field>
+      <field name="lang">${object.lang}</field>
+      <field name="model_id" ref="sb_medical_clinic.model_sb_appointment_calender"/>
+      <field name="auto_delete" eval="False"/>
+      <field name="body_html">
+        <![CDATA[
+        <p>Dear ${object.patient_id.name},<br/><br/>
+        You had booked your appointment on ${object.start_date},<br/><br/>
+        Please be available on scheduled appointment with the doctor.<br/><br/>
+        Have a good day.<br/><br/>
+        Thanks,<br/>
+        Your Company Name.<br/></p>
+        ]]>
+      </field>
+    </record>
+
+    <record id="ir_cron_appointment_reminder_template" model="ir.cron">
+      <field name="name">Cron Appointment Reminder</field>
+      <field name="user_id" ref="base.user_root"/>
+      <field name="model">sb.appointment_calender</field>
+      <field name="function">sb_appointment_reminder</field>
+      <field name="interval_number">1</field>
+      <field name="interval_type">days</field>
+      <field name="numbercall">-1</field>
+      <field name="doall" eval="False"/>
+      <field name="args">()</field>
+      <field name="active">True</field>
+    </record -->
+
+  </data>
+</odoo>
